@@ -1,4 +1,4 @@
 
 # Tyle
 
-Tyle lets non-software engineers attach dynamic views to their data
+Tyle lets non-software engineers augment to their data with dynamic views.
