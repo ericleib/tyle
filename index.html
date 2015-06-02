@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tyleApp">
+  <head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Tyle Explorer</title>
+
+    <!-- Jquery and plugins -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/jquery/split-pane.js"></script>
+    <script src="js/jquery/jqueryFileTree.js"></script>
+    <script src="node_modules/jquery-easing/dist/jquery.easing.1.3.umd.min.js"></script>
+
+    <link href="css/jqueryFileTree.css" rel="stylesheet"/>
+    <link href="css/split-pane.css" rel="stylesheet"/>
+
+    <!-- Bootstrap Core CSS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Angular -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/ngstorage/ngStorage.min.js"></script>
+
+    <script src="node_modules/sax/lib/sax.js"></script>
+
+    <link href="css/tyle.css" rel="stylesheet"/>
+    <script src="js/controllers.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/local-adapter.js"></script>
+    <script src="js/xml-parser.js"></script>
+    <script src="js/default-types.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/utils.js"></script>
+
+  </head>
+
+
+  <body class="striped-bg">
+
+    <header>
+
+      <div id="navigation" ng-controller="NavCtrl as nav">
+
+        <div class="input-group">
+            <span class="input-group-btn">
+              <select name="select" class="input-sm" ng-model="nav.protocol">
+                <option ng-repeat="p in nav.protocols" value="{{p.value}}" ng-disabled="{{p.disabled}}" ng-selected="{{p.default}}">{{p.name}}</option>
+              </select>
+            </span>
+            <input type="text" class="form-control input-sm" placeholder="Tyle repository" list="last_urls" ng-keyup="$event.keyCode == 13 && nav.go()" ng-model="nav.url">
+            <span class="input-group-btn">
+              <button class="btn btn-default btn-sm" type="submit" ng-click="nav.go()">Go</button>
+            </span>
+            <datalist id="last_urls" >
+              <option ng-repeat="prev_url in $storage.prev_urls" value="{{prev_url}}"/>
+            </datalist>
+        </div>
+
+      </div>
+
+    </header>
+
+    <div class="split-pane fixed-left">
+      <div class="split-pane-component" id="left-component" >
+          <div filetree id="#filetree" class="ui-box">
+
+          </div>
+      </div>
+      <div class="split-pane-divider" id="my-divider"></div>
+      <div class="split-pane-component" id="right-component" ng-controller="TyleGroupsCtrl">
+
+        <div class="container-fluid ui-box tylegroup" ng-repeat="tylegroup in alltylegroups">
+          <!--div class="row"-->
+
+          <div class="tylegroup-header ui-box">
+            <a class="close-tyle" ng-click="tylegroup.close()" tooltip="'Close {{tylegroup.file}}'" placement="right">x</a>
+            <span>{{tylegroup.file}}</span>
+            <div class="has-feedback filter-tyle">
+                <input type="text" class="form-control input-sm filter-tyle-input" placeholder="Filter" ng-model="tylegroup.filter" ng-change="tylegroup.applyFilter()">
+                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+            </div>
+          </div>
+
+          <tyle ng-repeat="tyle in tylegroup.data.tyles" ng-if="!tyle.filtered" tyle-title="{{tyle.name}}" tyle-name="{{tyle.get('name').value}}">
+
+            <pane ng-repeat="view in tyle.views" pane-title="{{view.alias}}" pane-description="{{view.engine.description}}" pane-selected="paneSelected">
+              <div dynamic-view="view" tyle="tyle" class="dynview" ng-if="paneSelected">
+              </div>
+            </pane>
+
+          </tyle>
+
+          <div class="col-xs-12 fade in alert alert-{{l.warn? 'warning' : 'danger'}}" ng-repeat="l in tylegroup.log">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{l.warn ? 'Warning:' : 'Error:'}}</strong> {{l.warn || l.error}}
+          </div>
+          <!--/div-->
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer ng-controller="FooterCtrl as footer">
+      <span ng-repeat="lib in libs">{{lib.name}}: <strong>{{lib.version}}</strong> / </span>
+      <button id="debug" ng-class="error? 'btn btn-danger':'btn btn-default'" ng-click="debug()">Console</button>
+    </footer>
+
+
+  </body>
+</html>

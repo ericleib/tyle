@@ -1,0 +1,15 @@
+<div ng-class="{'col-xs-12 col-sm-12' : true , 'col-md-6': !fullscreen, 'col-lg-4': !fullscreen}">
+  <div class="dummy"></div>
+  <div class="tylewrapper tabbable ui-box tyle">
+    <button ng-click="toggleFullScreen($event)" type="button" class="btn btn-default btn-xs pull-right" tooltip="'Enlarge'" placement="left">
+        <span ng-class="{'glyphicon glyphicon-fullscreen': !fullscreen, 'glyphicon glyphicon-th': fullscreen}"></span>
+    </button>
+    <p class="title">{{tyleTitle+(" "+tyleName || "")}}</p>    <!-- title and name defined in tyle directive scope -->
+    <ul class="nav nav-tabs">
+      <li ng-repeat="pane in panes" ng-class="{active:pane.paneSelected}">
+        <a href="" ng-click="select(pane)" tooltip="'{{pane.paneDescription}}'" placement="bottom">{{pane.paneTitle}}</a>
+      </li>
+    </ul>
+    <div class="tab-content" ng-transclude></div>
+  </div>
+</div>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tyle>
+  <!-- Tyle is based on a number of principles:
+    - Data is stored in xml files (tyles) readable and editable by non-specialists
+    - Tyles can be traced in time, using a SCM (e.g. Git, SVN)
+    - Tyles are structured in a flexible, object-oriented way
+    - Tyles contain the data, the structure of the data, and the means of representing the data
+  -->
+  <!-- Selection principles:
+    - Select a child/all children of type "iso" with "iso"
+    - Select a child/all children of id "iso" with "#iso" (optional)
+    - Select a child/all children tagged "iso" with ".iso" (optional)
+    -->
+  <!-- Schema is a way to declare object structure -->
+  <!-- Not mandatory : Object can be declared dynamically (although no supported in v1) -->
+  <!-- Inline views/rules declaration not supported in v1 -->
+  <!-- Recursive type declaration not supported in v1 but could be e.g. <son type="father"> ==> useful for hierachical structures-->
+  <!-- Make a simpler version for presentation to avoid scaring people -->
+  <!-- Make some rules enforçable... like "ordered-by" -->
+  <!-- ids must be unique with one object-->
+  <!-- Views are defined as attribute for now. In the future maybe consider switch to child-elements if many views -->
+  <!-- Dilemna: which is best? (1) "<string name='abs'" vs. (2) "<abs type='string'"
+      - Pros of (1): Easy document validation (looks like xsd) + type attribute can be used instead of items-type + no problem of duplication of types...
+      - Pros of (2): Data looks very much like its schema
+  -->
+  <!-- tags: Automatically affected to all children of an object? -->
+  <schemas>
+
+    <label type="object" views="table, xy-graph as graph"> <!-- The top-level declaration of each view will trigger a function call like table() -->
+
+      <name type="string" regexp="^[\w\*]+$" views="table.title, graph.title"/>
+      <base type="string" views="table.subtitle, graph.subtitle"/>
+      <date type="date"/>
+      <ord-label type="string" views="table.header4, graph.labelY"/>
+      <ord-unit  type="string"/>
+      <abs-label type="string" views="table.header3, graph.labelX"/>
+      <abs-unit  type="string"/>
+      <iso-label type="string" views="table.header2, graph.labelSeries"/>
+      <iso-unit  type="string"/>
+      <super-label type="string" views="table.header1, graph.labelDataset"/>
+      <super-unit  type="string"/>
+
+      <!-- For the 1D labels -->
+      <absord type="object" views="table.row, graph.dataset.series">
+        <abs type="array-real" views="table.row.col1, graph.dataset.series.x"/>
+        <ord type="array-real" views="table.row.col2, graph.dataset.series.y"/>
+      </absord>
+
+      <!-- For the 2D labels -->
+      <isos type="array" ordered-by="iso" min-size="1">
+        <absord type="object" views="table.row, graph.dataset.series">
+          <iso type="real" views="table.row.col1, graph.dataset.series.label"/>
+          <abs type="array-real" views="table.row.col2, graph.dataset.series.x"/>
+          <ord type="array-real" views="table.row.col3, graph.dataset.series.y"/>
+        </absord>
+      </isos>
+
+      <!-- For the 3D labels -->
+      <superisos type="array" ordered-by="superiso" min-size="1">
+        <superiso type="object" views="table.row, graph.dataset">
+          <superiso type="real" views="table.row.col1, graph.dataset.label"/>
+          <isos type="array" required="true" ordered-by="iso" min-size="1">   <!-- With these settings, we don't differentiate between the different isos -->
+            <absord type="object" views="table.row.row, graph.dataset.series">
+              <iso type="real" views="table.row.row.col2, graph.dataset.series.label"/>
+              <abs type="array-real" views="table.row.row.col3, graph.dataset.series.x"/>
+              <ord type="array-real" views="table.row.row.col4, graph.dataset.series.y"/>
+            </absord>
+          </isos>
+        </superiso>
+      </superisos>
+
+    </label>
+
+    <wing type="object" views="drawing as draw">
+      <name type="string" regexp="^[\w\*]+$" views="draw.title"/>
+      <sections type="array">
+        <section type="object" views="draw.shapes.trapezoid">
+          <x-in type="real"/>
+          <x-out type="real"/>
+          <y-in type="real"/>
+          <y-out type="real"/>
+          <chord-in type="real"/>
+          <chord-out type="real"/>
+        </section>
+      </sections>
+    </wing>
+
+  </schemas>
+    <!-- object rules
+    <rule ></rule>
+    <rule  level="strict"></rule> -->
+
+    <!-- object views -->
+
+    <!-- object child (must be unique for an array) -->
+
+  <!-- Alternatively declared:
+  <schema include="separate-type-file.xml"></schema>
+  -->
+
+
+  <views>
+    <!--view name="someotherview" include="default-tyle-views.xml"></view-->
+    <view name="table" require="table" description="Table view"></view>
+    <view name="xy-graph" require="charts" description="Graph view"></view>
+    <view name="drawing" require="drawing2D" description="2D drawing"></view>
+  </views>
+
+
+
+  <tyles>
+
+    <label>
+      <name>ACZALPHA</name>
+      <base>Just a test case</base>
+      <date>2015-05-10</date>
+      <ord-label>Cz</ord-label>
+      <ord-unit>nd</ord-unit>
+      <iso-label>Conf</iso-label>
+      <iso-unit>nd</iso-unit>
+      <abs-label>Alpha</abs-label>
+      <abs-unit>deg</abs-unit>
+      <isos>
+        <absord tags="clean">
+          <timmy>yay</timmy>
+          <iso>0</iso>
+          <abs>0 1 2 3 4</abs>
+          <ord>0 1 2 3 4</ord>
+        </absord>
+        <absord>
+          <iso>1800</iso>
+          <abs>0 1 2 3 4 5</abs>
+          <ord>0 10 15 10 20 0</ord>
+        </absord>
+        <absord>
+          <iso>2220</iso>
+          <abs>0 1 2 2.5 3.5 6.1</abs>
+          <ord>15 18 19 20 14 12</ord>
+        </absord>
+        <absord>
+          <iso>2735</iso>
+          <abs>0.5 1.2 1.4 1.7 2.8 4.5</abs>
+          <ord>5 7 8 7.5 6 5.5</ord>
+        </absord>
+      </isos>
+    </label>
+
+    <wing>
+      <name>A360</name>
+      <sections>
+        <section>
+          <x-in> 0 </x-in>
+          <x-out> 0 </x-out>
+          <y-in> 0 </y-in>
+          <y-out> 3 </y-out>
+          <chord-in> 6 </chord-in>
+          <chord-out> 6 </chord-out>
+        </section>
+        <section>
+          <x-in> 0 </x-in>
+          <x-out> 3 </x-out>
+          <y-in> 3 </y-in>
+          <y-out> 6 </y-out>
+          <chord-in> 6 </chord-in>
+          <chord-out> 4 </chord-out>
+        </section>
+        <section>
+          <x-in> 3 </x-in>
+          <x-out> 13 </x-out>
+          <y-in> 6 </y-in>
+          <y-out> 16 </y-out>
+          <chord-in> 4 </chord-in>
+          <chord-out> 1.5 </chord-out>
+        </section>
+      </sections>
+    </wing>
+
+
+    <label>
+      <name>LABEL1D</name>
+      <base>Just a test case</base>
+      <date>2015-05-10</date>
+      <ord-label>Cz</ord-label>
+      <ord-unit>nd</ord-unit>
+      <abs-label>Alpha</abs-label>
+      <abs-unit>deg</abs-unit>
+      <absord tags="clean">
+        <abs>0 1 2 3 4</abs>
+        <ord>12 11 9 6 0</ord>
+      </absord>
+    </label>
+
+    <label>
+      <name>LABEL3D</name>
+      <base>Just a test case</base>
+      <date>2015-05-10</date>
+      <ord-label> Cz </ord-label>
+      <ord-unit> nd </ord-unit>
+      <abs-label> Alpha </abs-label>
+      <abs-unit> deg </abs-unit>
+      <iso-label> Conf </iso-label>
+      <iso-unit> nd </iso-unit>
+      <super-label> Mach </super-label>
+      <super-unit> nd </super-unit>
+      <superisos>
+        <superiso>
+          <superiso>29</superiso>
+          <isos>
+            <absord tags="clean">
+              <iso>0</iso>
+              <abs>0 1 2 3 4</abs>
+              <ord>0 1 2 3 4</ord>
+            </absord>
+            <absord>
+              <iso>1800</iso>
+              <abs>0 1 2 3 4 5</abs>
+              <ord>0 10 15 10 20 0</ord>
+            </absord>
+          </isos>
+        </superiso>
+        <superiso>
+          <superiso>56</superiso>
+          <isos>
+            <absord>
+              <iso>2220</iso>
+              <abs>0 1 2 2.5 3.5 6.1</abs>
+              <ord>15 18 19 20 14 12</ord>
+            </absord>
+            <absord>
+              <iso>2735</iso>
+              <abs>0.5 1.2 1.4 1.7 2.8 4.5</abs>
+              <ord>5 7 8 7.5 6 5.5</ord>
+            </absord>
+          </isos>
+        </superiso>
+      </superisos>
+    </label>
+
+  </tyles>
+
+</tyle>

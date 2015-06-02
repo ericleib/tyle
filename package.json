@@ -1,0 +1,33 @@
+{
+  "name": "tyle",
+  "description": "Attach views to your data",
+  "version": "0.1.0",
+  "author": "Eric Leibenguth",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "icon": "img/tile.png",
+    "width": 1024,
+    "height": 720,
+    "min_height": 480,
+    "min_width": 640,
+    "position": "center"
+  },
+  "dependencies": {
+    "angular": "^1.3.15",
+    "bootstrap": "^3.3.4",
+    "jquery": "^2.1.4",
+    "jquery-easing": "0.0.1",
+    "ngstorage": "^0.3.3",
+    "sax": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.5",
+    "gulp-zip": "^3.0.2",
+    "node-webkit-builder": "^1.0.11"
+  },
+  "scripts": {
+    "gulp": "gulp"
+  }
+}

@@ -1,0 +1,233 @@
+
+body {
+  font-size: 11px;
+}
+
+/* Header */
+
+header {
+  /*color: #EEE;*/
+  /*border-bottom: 1px solid #CCC;*/
+  height: 40px;
+  width:100%;
+  position:fixed;
+  top: 0;
+}
+
+#navigation {
+  margin: 5px;
+}
+
+#navigation select {
+    border-radius: 5px 0 0 5px;
+}
+
+#navigation button {
+    border-radius: 0 5px 5px 0;
+}
+
+footer {
+  /*border-top: 1px solid #CCC;*/
+  height: 20px;
+  width:100%;
+  color: #EEE;
+  position: fixed;
+  bottom: 0;
+  font-size: 1.2em;
+}
+
+footer #debug {
+  float: right;
+  margin: 1px 10px;
+  padding: 0 10px;
+  height: 17px;
+  font-size: 0.9em;
+}
+
+.striped-bg{
+    background-color: #4A4545;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .02) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+}
+
+
+/* Split pane */
+
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+.split-pane-divider {
+    background: #666;
+}
+.split-pane {
+  margin-top: 40px;
+  height: calc(100% - 60px);
+}
+#left-component {
+    width: 18em;
+}
+#my-divider {
+    left: 18em; /* Same as left component width */
+    width: 2px;
+}
+#right-component {
+    left: 18em;  /* Same as left component width */
+    margin-left: 2px;  /* Same as divider width */
+}
+
+/* Scroll bars */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    box-shadow: inset 0 0 6px rgba(255,255,255,0.7);
+}
+
+
+/* Main display */
+.tooltip {
+    position: fixed;
+}
+
+.ui-box {
+	padding: 3px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background: rgba(255,255,255, 0.7);
+  border-radius: 5px;
+}
+
+.tylegroup {
+  margin-left: 2px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.tylegroup-header {
+  margin: 3px;
+  height: 35px;
+}
+
+.filter-tyle {
+  float: right;
+}
+
+.filter-tyle-input {
+  width: 220px;
+  border-radius: 20px;
+}
+
+.close-tyle{
+    cursor:pointer;
+    color: #fff;
+    border-radius: 20px;
+    background: #CCC;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 10px;
+    padding: 3px 4px 5px 4px;
+    margin-top: 5px;
+}
+
+a.close-tyle:hover {
+  text-decoration: none !important;
+}
+
+.tyle {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px;
+}
+
+.tylewrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+.tylewrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.tylewrapper::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+}
+
+.title {
+  text-align: center;
+  margin: 3px;
+  font-size: 1.4em;
+  text-transform: capitalize;
+}
+
+.dummy {
+  margin-top: 100%;
+}
+
+.nav-tabs > li > a {
+  padding-top:2px;
+  padding-bottom:0;
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+
+.alert {
+  margin-bottom: 2px;
+  font-size: 1.4em;
+}
+
+/* Tree view */
+#filetree {
+  margin-left: 5px;
+  margin-right: 2px;
+}
+
+
+.dynview {
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/* JSON hilighting */
+
+.json .key {
+  color: blue;
+}
+
+.json .boolean{
+  color: purple;
+}
+
+.json .null {
+  color: red;
+}
+
+.json .number {
+  color: green;
+}
+
+.json .string {
+  color: grey;
+}
