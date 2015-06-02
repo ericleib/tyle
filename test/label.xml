@@ -122,7 +122,6 @@
       <abs-unit>deg</abs-unit>
       <isos>
         <absord tags="clean">
-          <timmy>yay</timmy>
           <iso>0</iso>
           <abs>0 1 2 3 4</abs>
           <ord>0 1 2 3 4</ord>
