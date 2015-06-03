@@ -34,3 +34,41 @@ body {
 footer {
     margin: 50px 0;
 }
+
+#info {
+  margin-top: 30px;
+}
+
+#info h3 {
+  margin-top: 30px;
+}
+
+
+.icon {
+  padding-left: 25px;
+  height: 30px;
+  line-height: 36px;
+  display: -moz-inline-stack;
+  display: inline-block;
+}
+
+.windows {
+  background: white url(../img/windows.png) 0 6px no-repeat;
+}
+
+.mac {
+  background: white url(../img/apple.png) 0 6px no-repeat;
+}
+
+.linux {
+  background: white url(../img/linux.png) 0 6px no-repeat;
+}
+
+table th {
+  line-height: 36px !important;
+}
+
+table tr.table-header th {
+  line-height: 20px !important;
+  text-align: center;
+}

@@ -6,59 +6,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Tyle landing page">
+    <meta name="author" content="Eric Leibenguth">
 
     <title>Tyle - Augment you data</title>
+
+    <link rel="icon" href="tile.png" />
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/full-slider.css" rel="stylesheet">
+    <link href="css/tyle.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
 
     <!-- Full Page Image Background Carousel Header -->
     <header id="myCarousel" class="carousel slide">
@@ -108,11 +76,54 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12">
-                <h1>Full Slider by Start Bootstrap</h1>
-                <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the <code>full-slider.css</code>file.</p>
+            <div id="info" class="col-lg-12">
+
+                <h1>Get Tyle</h1>
+
+                <h3>Tyle is an open-source project hosted on GitHub</h3>
+
+                <p>Documentation, examples and useful information is available on the GitHub page</p>
+
+                <a href="https://github.com/ericleib/tyle" class="btn btn-default btn-lg">View on GitHub</a>
+                <a href="https://github.com/ericleib/tyle/zipball/master" class="btn btn-default btn-lg">Download .zip</a>
+                <a href="https://github.com/ericleib/tyle/tarball/master" class="btn btn-default btn-lg">Download .tar.gz</a>
+
+                <h3>Download the Tyle executable for your platform</h3>
+
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                  <table class="table">
+                    <tr class="table-header">
+                      <th></th> <th>Windows</th> <th>Mac</th> <th>Linux</th>
+                    </tr>
+                    <tr>
+                      <th>64bits</th> <td><a class="icon windows" href="">64bits</a></td> <td><a class="icon mac" href="">64bits</a></td> <td><a class="icon linux" href="">64bits</a></td>
+                    </tr>
+                    <tr>
+                      <th>32bits</th> <td><a class="icon windows" href="">32bits</a></td> <td><a class="icon mac" href="">32bits</a></td> <td><a class="icon linux" href="">32bits</a></td>
+                    </tr>
+
+                  </table>
+                </div>
+
+                <!-- Add form here for comments and call to action -->
+
             </div>
+
         </div>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'tyle';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
         <hr>
 
@@ -120,7 +131,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Tyle 2015</p>
                 </div>
             </div>
             <!-- /.row -->
