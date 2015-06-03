@@ -29,5 +29,10 @@
   },
   "scripts": {
     "gulp": "gulp"
+  },
+  "license" : { 
+    "type" : "GPL-2.0",
+    "url" : "https://raw.githubusercontent.com/ericleib/tyle/master/LICENSE"
   }
+}
 }
