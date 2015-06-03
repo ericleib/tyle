@@ -13,6 +13,14 @@ body {
 .item,
 .active {
     height: 100%;
+    background-color: #f45145;
+}
+
+.carousel {
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
 }
 
 .carousel-inner {
@@ -29,6 +37,34 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.carousel-indicators {
+  bottom: 30px;
+}
+
+.carousel-caption {
+  bottom: 30px;
+}
+
+.down-icon {
+  position: absolute;
+  bottom: 7px;
+  left: calc(50% - 25px);
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+.down-icon span {
+  font-size: 1.3em;
+  transform:scale(1.5,1); /* W3C */
+  -webkit-transform:scale(1.5,1); /* Safari and Chrome */
+  -moz-transform:scale(1.5,1); /* Firefox */
+  -ms-transform:scale(1.5,1); /* IE 9 */
+  -o-transform:scale(1.5,1); /* Opera */
 }
 
 footer {

@@ -40,22 +40,16 @@
         <!-- Wrapper for Slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
                 <div class="carousel-caption">
                     <h2>Caption 1</h2>
                 </div>
             </div>
             <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
                 <div class="carousel-caption">
                     <h2>Caption 2</h2>
                 </div>
             </div>
             <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
                 <div class="carousel-caption">
                     <h2>Caption 3</h2>
                 </div>
@@ -70,19 +64,24 @@
             <span class="icon-next"></span>
         </a>
 
+        <a class="down-icon" href="#info">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+
+
     </header>
 
     <!-- Page Content -->
     <div class="container">
 
         <div class="row">
-            <div id="info" class="col-lg-12">
+            <div id="info" class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
                 <h1>Get Tyle</h1>
 
                 <h3>Tyle is an open-source project hosted on GitHub</h3>
 
-                <p>Documentation, examples and useful information is available on the GitHub page</p>
+                <p>Documentation, examples and useful information are available on the GitHub page.</p>
 
                 <a href="https://github.com/ericleib/tyle" class="btn btn-default btn-lg">View on GitHub</a>
                 <a href="https://github.com/ericleib/tyle/zipball/master" class="btn btn-default btn-lg">Download .zip</a>
@@ -90,16 +89,24 @@
 
                 <h3>Download the Tyle executable for your platform</h3>
 
-                <div class="col-xs-12 col-md-6 col-lg-4">
+                <p>Download and extract to the folder of your choice. Tyle-Explorer is a self-contained stand-alone application.</p>
+
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
                   <table class="table">
                     <tr class="table-header">
                       <th></th> <th>Windows</th> <th>Mac</th> <th>Linux</th>
                     </tr>
                     <tr>
-                      <th>64bits</th> <td><a class="icon windows" href="">64bits</a></td> <td><a class="icon mac" href="">64bits</a></td> <td><a class="icon linux" href="">64bits</a></td>
+                      <th>64bits</th>
+                      <td><a class="icon windows" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-win32.zip">64bits</a></td>
+                      <td><a class="icon mac" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-osx64.zip">64bits</a></td>
+                      <td><a class="icon linux" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-linux64.zip">64bits</a></td>
                     </tr>
                     <tr>
-                      <th>32bits</th> <td><a class="icon windows" href="">32bits</a></td> <td><a class="icon mac" href="">32bits</a></td> <td><a class="icon linux" href="">32bits</a></td>
+                      <th>32bits</th>
+                      <td><a class="icon windows" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-win64.zip">32bits</a></td>
+                      <td><a class="icon mac" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-osx32.zip">32bits</a></td>
+                      <td><a class="icon linux" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-linux32.zip">32bits</a></td>
                     </tr>
 
                   </table>
@@ -111,7 +118,15 @@
 
         </div>
 
-        <div id="disqus_thread"></div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+            <h3>Leave a comment!</h3>
+
+            <div id="disqus_thread"></div>
+
+          </div>
+        </div>
+
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES * * */
             var disqus_shortname = 'tyle';
@@ -146,12 +161,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Script to Activate the Carousel -->
+    <script src="js/tyle.js"></script>
+
+    <!-- Script to Activate the Carousel
     <script>
     $('.carousel').carousel({
         interval: 10000 //changes the speed
     })
-    </script>
+    </script>-->
 
 </body>
 
