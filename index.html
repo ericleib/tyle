@@ -54,7 +54,7 @@
                       <p>Did your <strong>company</strong>/<strong>community</strong>/<strong>institution</strong> ever need to develop <strong>specific software</strong> to perform one (or more) of the following?</p>
                       <table>
                         <tr><td><span class="glyphicon glyphicon-tasks icon-table"></span></td> <td class="txt-table">Store, edit and share data among and outside your organization</td></tr>
-                        <tr><td><span class="glyphicon glyphicon-random icon-table"></span></td> <td class="txt-table">Manage different and evolving types of data</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-random icon-table"></span></td> <td class="txt-table">Manage heterogeneous and evolving types of data</td></tr>
                         <tr><td><span class="glyphicon glyphicon-picture icon-table"></span></td> <td class="txt-table">Visualize data in ways specific to each department of your organization</td></tr>
                         <tr><td><span class="glyphicon glyphicon-transfer icon-table"></span></td> <td class="txt-table">Import/export data from/to each department of your organization</td></tr>
                         <tr><td><span class="glyphicon glyphicon-th icon-table"></span></td> <td class="txt-table">Compare multiple objects from your data</td></tr>
@@ -164,7 +164,7 @@
                 <div class="row">
                   <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
-                    <p>Explore you data with Tyle-Explorer.</p>
+                    <p>Explore your data with Tyle-Explorer.</p>
                     <p>Tyle-Explorer is available in your browser (if your data is stored on a server) or as a standalone application (allowing you to also access data locally, or over FTP and SSH).</p>
                     <p>Tyle-Explorer displays your object's views and allows you to compare various objects and to run your importers/exporters.</p>
                     <p>Screenshot Tyle-Explorer.</p>
@@ -292,6 +292,50 @@
 
         <section class="row">
           <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+            <h3>Want to get in touch?</h3>
+            <form id="contact" role="form" class="form-horizontal" >
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="email">Email address:</label>
+                <div class="col-sm-9">
+                  <input data-validation="email" class="form-control" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="object">What can we do for you?</label>
+                <div class="col-sm-9">
+                  <select id="object" class="form-control">
+                    <option>Just keep me informed of Tyle's developments</option>
+                    <option>Can you help me get started?</option>
+                    <option>Does Tyle meet my requirements?</option>
+                    <option>Can I take part in Tyle's development?</option>
+                    <option>I like Tyle, and I'd like to support it</option>
+                    <option>I hate Tyle, and here's why</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="message">Message:</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" rows="5" id="message"></textarea>
+                </div>
+              </div>
+              <div id="fooDiv" style="display: none;">
+                <label for="foo">Leave this field blank</label>
+                <input type="text" name="foo" id="foo"/>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-default">Send</button>
+                </div>
+              </div>
+              <span id="formResponse" style="float: right;"></span>
+            </form>
+          </div>
+        </section>
+
+        <section class="row">
+          <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
             <h3>Leave a comment!</h3>
 
             <div id="disqus_thread"></div>
@@ -330,6 +374,7 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.form-validator.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
