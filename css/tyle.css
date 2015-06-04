@@ -21,11 +21,11 @@ body {
 }
 
 .carousel-indicators {
-  bottom: 30px;
+  bottom: 10px;
 }
 
 .carousel-caption {
-  bottom: 35px;
+  bottom: 22px;
   text-shadow:none;
 }
 
@@ -39,25 +39,6 @@ body {
 .carousel-caption h2:hover {
   background-color: white;
   color:  #f45145;
-}
-
-.down-icon {
-  position: absolute;
-  bottom: 7px;
-  left: calc(50% - 25px);
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-}
-
-.down-icon span {
-  font-size: 1.3em;
-  -webkit-transform:scale(1.5,1); /* Safari and Chrome */
-  -moz-transform:scale(1.5,1); /* Firefox */
-  -ms-transform:scale(1.5,1); /* IE 9 */
-  -o-transform:scale(1.5,1); /* Opera */
-  transform:scale(1.5,1); /* W3C */
 }
 
 .carousel {
@@ -92,7 +73,7 @@ header h2 {
   margin-top: 0;
 }
 
-@media only screen and (min-height: 650px) {
+@media only screen and (min-height: 640px) {
   header {
     font-size: 1.2em !important;
   }
