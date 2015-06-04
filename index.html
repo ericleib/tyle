@@ -29,31 +29,210 @@
 <body>
 
     <!-- Full Page Image Background Carousel Header -->
-    <header id="myCarousel" class="carousel slide">
+    <header id="myCarousel" class="carousel slide" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
+            <li data-target="#myCarousel" data-slide-to="7"></li>
         </ol>
 
         <!-- Wrapper for Slides -->
         <div class="carousel-inner">
+
+
             <div class="item active">
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                <div class="container">
+                  <div class="row">
+                    <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                      <img id="hello" src="img/hello.png"/>
+                      <p>Did your <strong>company</strong>/<strong>community</strong>/<strong>institution</strong> ever need to develop <strong>specific software</strong> to perform one (or more) of the following?</p>
+                      <table>
+                        <tr><td><span class="glyphicon glyphicon-tasks icon-table"></span></td> <td class="txt-table">Store, edit and share data among and outside your organization</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-random icon-table"></span></td> <td class="txt-table">Manage different and evolving types of data</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-picture icon-table"></span></td> <td class="txt-table">Visualize data in ways specific to each department of your organization</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-transfer icon-table"></span></td> <td class="txt-table">Import/export data from/to each department of your organization</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-th icon-table"></span></td> <td class="txt-table">Compare multiple objects from your data</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-signal icon-table"></span></td> <td class="txt-table">Track evolutions in your data over time</td></tr>
+                      </table>
+                    </div>
+                  </div>
                 </div>
+                <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                    <h2>&gt; Yeah, I guess</h2>
+                </a>
             </div>
+
+
             <div class="item">
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+In-house software can be costly to develop and tedious to maintain, especially if this is not your core competence.
+
+What if there was a free, open-source solution out there, that would be flexible enough to adapt to your needs?
+
+Meet Tyle, a system based on free, open-source, state-of-the-art, community-maintained software.
+
+                  </div>
                 </div>
+              </div>
+              <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                  <h2>&gt; I'm listening...</h2>
+              </a>
             </div>
+
+
             <div class="item">
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+Tyle lets engineers model their "objects" with the XML format. Because the format is very generic, it will easily adapt to any of your wildest data structures.
+
+As data lives in plain text files, it can be stored and accessed with simple shared-folders, FTP, or even Dropbox.
+
+No mysterious database technology is involved. No complex infrastructure is needed: A text editor is enough if you have to change a number in there. You can actually get started locally in a few minutes.
+
+                  </div>
                 </div>
+              </div>
+              <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                  <h2>&gt; Simple, I get it</h2>
+              </a>
             </div>
+
+
+            <div class="item">
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+The beauty of Tyle is data augmentation.
+
+Once data is modelled, it can be "augmented" with any number of built-in or custom "views".
+
+So let's say you are modelling cars. You could define views to show:
+- The car's external geometry for aerodynamics.
+- The car's structural geometry for mechanical engineering.
+- The car's kynematic model for simulations.
+- The car's performance figures for marketing.
+- etc.
+
+Oh! And these views can be used to display one single object, or to compare multiple objects with each other.
+
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                  <h2>&gt; Looks good</h2>
+              </a>
+            </div>
+
+
+            <div class="item">
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+Besides views, data can be augmented with importers and exporters.
+
+As their names suggest, these allow you to map Tyle's data format to your existing databases and tools.
+
+Writing a custom view, importer or exporter is done with Javascript, the language of the web.
+
+You can leverage any library available out there just by declaring it as a dependency. Check-out d3.js if you want inspiration.
+
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                  <h2>&gt; Sounds useful!</h2>
+              </a>
+            </div>
+
+
+
+            <div class="item">
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+Explore you data with Tyle-Explorer.
+
+Tyle-Explorer is available in your browser (if your data is stored on a server) or as a standalone application (allowing you to also access data locally, or over FTP and SSH).
+
+Tyle-Explorer displays your object's views and allows you to compare various objects and to run your importers/exporters.
+
+Screenshot Tyle-Explorer.
+
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                  <h2>&gt; I'm interested!</h2>
+              </a>
+            </div>
+
+
+
+            <div class="item">
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+You need to keep track of evolutions in your data in time? You need engineers to access/edit the data concurrently?
+
+Tyle will work extremely nicely with tools like Git or Subversion, or even Dropbox!
+
+Originally designed for source code versioning, Git will do a great job at tracking changes in your data, and merging the work done by various engineers concurrently.
+
+Cherry-on-top: Create a GitHub account, and instantly share your data with the world for free!
+
+You can even host Tyle-Explorer on a static page to displays your views to everyone!!
+
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-caption" href="#myCarousel" data-slide="next">
+                  <h2>&gt; That blows my mind!!</h2>
+              </a>
+            </div>
+
+
+
+            <div class="item">
+              <div class="container">
+                <div class="row">
+                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+
+Without any useless complexity, Tyle gives your data up to five dimensions:
+
+- Model widely different types of data
+
+- Visualize your data in multiples ways
+
+- Compare multiple objects of the same type
+
+- Track evolutions of your objects in time
+
+- Manage parallel versions of your data
+
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-caption smooth-scroll" href="#info">
+                  <h2>&gt; Where do I sign??</h2>
+              </a>
+            </div>
+
+
         </div>
 
         <!-- Controls -->
@@ -64,7 +243,7 @@
             <span class="icon-next"></span>
         </a>
 
-        <a class="down-icon" href="#info">
+        <a class="down-icon smooth-scroll" href="#info">
             <span class="glyphicon glyphicon-chevron-down"></span>
         </a>
 
@@ -74,7 +253,7 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
+        <section class="row">
             <div id="info" class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
                 <h1>Get Tyle</h1>
@@ -98,13 +277,13 @@
                     </tr>
                     <tr>
                       <th>64bits</th>
-                      <td><a class="icon windows" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-win32.zip">64bits</a></td>
-                      <td><a class="icon mac" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-osx64.zip">64bits</a></td>
-                      <td><a class="icon linux" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-linux64.zip">64bits</a></td>
+                      <td id="winfav"><a class="icon windows" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-win64.zip">64bits</a></td>
+                      <td id="macfav"><a class="icon mac" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-osx64.zip">64bits</a></td>
+                      <td id="linfav"><a class="icon linux" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-linux64.zip">64bits</a></td>
                     </tr>
                     <tr>
                       <th>32bits</th>
-                      <td><a class="icon windows" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-win64.zip">32bits</a></td>
+                      <td><a class="icon windows" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-win32.zip">32bits</a></td>
                       <td><a class="icon mac" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-osx32.zip">32bits</a></td>
                       <td><a class="icon linux" href="https://github.com/ericleib/tyle/releases/download/v0.1.0/tyle-explorer-linux32.zip">32bits</a></td>
                     </tr>
@@ -116,17 +295,18 @@
 
             </div>
 
-        </div>
+        </section>
 
-        <div class="row">
+        <section class="row">
           <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
             <h3>Leave a comment!</h3>
 
             <div id="disqus_thread"></div>
 
           </div>
-        </div>
+        </section>
 
+        <!-- DISQUS -->
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES * * */
             var disqus_shortname = 'tyle';
@@ -161,7 +341,19 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!-- Custom Javascript -->
     <script src="js/tyle.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60237395-2', 'auto');
+      ga('send', 'pageview');
+    </script>
 
     <!-- Script to Activate the Carousel
     <script>
@@ -169,7 +361,6 @@
         interval: 10000 //changes the speed
     })
     </script>-->
-
 </body>
 
 </html>
