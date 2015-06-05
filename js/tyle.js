@@ -43,7 +43,7 @@ $(document).ready(function(){
 
   var container = $("#wheel3D")[0];
 
-  var camera, scene, renderer, material, mesh, plane;
+  var camera, scene, renderer, material, mesh;
 
   var targetRotation = 0;
   var targetRotationOnMouseDown = 0;
@@ -77,16 +77,6 @@ $(document).ready(function(){
     mesh.position.y = 100;
     scene.add( mesh );
 
-    // Plane
-
-    geometry = new THREE.PlaneBufferGeometry( 200, 200 );
-    geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
-
-    material = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
-
-    plane = new THREE.Mesh( geometry, material );
-    scene.add( plane );
-
     renderer = new THREE.CanvasRenderer();
     renderer.setClearColor( 0xDC493E );
     renderer.setPixelRatio( window.devicePixelRatio );
@@ -101,7 +91,7 @@ $(document).ready(function(){
 
   function onWindowResize() {
     windowHalfX = container.clientWidth / 2;
-    windowHalfY = container.height / 2;
+    windowHalfY = container.clientHeight / 2;
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( container.clientWidth, container.clientHeight );
@@ -171,9 +161,11 @@ $(document).ready(function(){
     type: "GET",
     url: "https://api.github.com/repos/ericleib/tyle/releases/latest"
   }).done(function(response) {
-    var releaseNotesText = response.body;
-    var title = "<h4>Release notes:</h4>";
-    $("#releaseNotes").html(title + markdown.toHTML(releaseNotesText)).show();
+    var text = response.body;
+    var name = response.name;
+    var tag = response.tag_name;
+    var title = "<h4><b>Release notes for:</b> "+name+" <small>("+tag+")</small></h4>";
+    $("#releaseNotes").html(title + markdown.toHTML(text)).show();
   });
 
 });
