@@ -101,7 +101,7 @@ header {
 
 @media only screen and (min-height: 640px) and (min-width: 640px){  /** Vertical & horizontal responsiveness **/
   header {
-    font-size: 1.15em !important;
+    font-size: 1.13em !important;
   }
   .slide-container {
     margin-top: 20px;
