@@ -93,9 +93,9 @@ $(document).ready(function(){
     renderer.setSize( container.clientWidth, container.clientHeight );
     container.appendChild( renderer.domElement );
 
-    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+    container.addEventListener( 'mousedown', onDocumentMouseDown, false );
+    container.addEventListener( 'touchstart', onDocumentTouchStart, false );
+    container.addEventListener( 'touchmove', onDocumentTouchMove, false );
     window.addEventListener( 'resize', onWindowResize, false );
   }
 
@@ -110,9 +110,9 @@ $(document).ready(function(){
 
   function onDocumentMouseDown( event ) {
     event.preventDefault();
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.addEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.addEventListener( 'mouseout', onDocumentMouseOut, false );
+    container.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    container.addEventListener( 'mouseup', onDocumentMouseUp, false );
+    container.addEventListener( 'mouseout', onDocumentMouseOut, false );
     mouseXOnMouseDown = event.clientX - windowHalfX;
     targetRotationOnMouseDown = targetRotation;
   }
@@ -123,15 +123,15 @@ $(document).ready(function(){
   }
 
   function onDocumentMouseUp( event ) {
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+    container.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+    container.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+    container.removeEventListener( 'mouseout', onDocumentMouseOut, false );
   }
 
   function onDocumentMouseOut( event ) {
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+    container.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+    container.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+    container.removeEventListener( 'mouseout', onDocumentMouseOut, false );
   }
 
   function onDocumentTouchStart( event ) {
