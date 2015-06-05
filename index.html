@@ -21,6 +21,9 @@
 
     <link rel="stylesheet" href="css/railscasts.css">
 
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" media="screen" />
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -55,12 +58,12 @@
                       <img id="hello" src="img/hello.png"/>
                       <p>A system based on free, open-source, state-of-the-art, community-maintained software.</p>
                       <table>
-                        <tr><td><span class="glyphicon glyphicon-tasks icon-table"></span></td> <td class="txt-table">Store, edit and share data among and outside your organization</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-tasks icon-table"></span></td> <td class="txt-table">Store, edit and share data inside and outside your organization</td></tr>
                         <tr><td><span class="glyphicon glyphicon-random icon-table"></span></td> <td class="txt-table">Manage heterogeneous and evolving types of data</td></tr>
                         <tr><td><span class="glyphicon glyphicon-picture icon-table"></span></td> <td class="txt-table">Visualize data in ways specific to each department of your organization</td></tr>
                         <tr><td><span class="glyphicon glyphicon-transfer icon-table"></span></td> <td class="txt-table">Import/export data from/to each department of your organization</td></tr>
                         <tr><td><span class="glyphicon glyphicon-th icon-table"></span></td> <td class="txt-table">Compare multiple objects from your data</td></tr>
-                        <tr><td><span class="glyphicon glyphicon-signal icon-table"></span></td> <td class="txt-table">Track evolutions in your data over time</td></tr>
+                        <tr><td><span class="glyphicon glyphicon-stats icon-table"></span></td> <td class="txt-table">Track evolutions in your data over time</td></tr>
                       </table>
                     </div>
                   </div>
@@ -74,18 +77,18 @@
             <div class="item">
               <div class="container">
                 <div class="row">
-                  <div class="slide-container centered bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                  <div class="slide-container justify bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
                     <h2>Common needs, yet specific software...</h2>
 
                     <p>Did your <strong>company</strong>/<strong>community</strong>/<strong>institution</strong> ever need to develop <strong>specific software</strong> to perform one (or more) of the above?</p>
 
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 centered">
                       <span class="glyphicon glyphicon-euro big-icon"></span>
                       <p>In-house software is costly to develop and tedious to maintain, especially if IT is not your core competence.<br/>Oh, and what happens when developers leave?</p>
                     </div>
 
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 centered">
                       <span class="glyphicon glyphicon-gift big-icon"></span>
                       <p>Tyle is a flexible solution adaptable to a wide range of problems and customizable to meet specific needs <br/>(and no need to be an IT wizard).</p>
                     </div>
@@ -132,30 +135,35 @@
                 <div class="row">
                   <div class="slide-container justify bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
-                    <h1>Data augmentation</h1>
+                    <div class="col-xs-12">
+                      <h1>Data augmentation</h1>
 
-                    <p>The next step is to <i>augment</i> the model with any number of built-in or custom <i>views</i>.</p>
+                      <p>The next step is to <i>augment</i> the model with any number of built-in or custom <i>views</i>.</p>
 
-                    <!--
-                    <p>So let's say you are modelling cars. You could define views to show:</p>
+                      <!--
+                      <p>So let's say you are modelling cars. You could define views to show:</p>
 
-                    <ul>
-                      <li>The car's external geometry for aerodynamics.</li>
-                      <li>The car's structural geometry for mechanical engineering.</li>
-                      <li>The car's kynematic model for simulations.</li>
-                      <li>The car's performance figures for marketing.</li>
-                      <li>etc.</li>
-                    </ul>
-                    -->
+                      <ul>
+                        <li>The car's external geometry for aerodynamics.</li>
+                        <li>The car's structural geometry for mechanical engineering.</li>
+                        <li>The car's kynematic model for simulations.</li>
+                        <li>The car's performance figures for marketing.</li>
+                        <li>etc.</li>
+                      </ul>
+                      -->
 
-                    <pre class="col-xs-12 small-pre"><code class="html">&lt;wheel views="shapes.cylinder"&gt;
+                      <pre class="small-pre"><code class="html">&lt;wheel views="shapes.cylinder"&gt;
   &lt;diameter views="shapes.cylinder.d"&gt;50&lt;/diameter&gt;
   &lt;width views="shapes.cylinder.w"&gt;10&lt;/width&gt;
   &lt;invented-on&gt;5000BC&lt;/invented-on&gt;
 &lt;/wheel&gt;</code></pre>
+                    </div>
 
                     <p class="col-xs-6">Here, we are creating a view to display the primitive shape of a wheel in 3D.</p>
-                    <div class="col-xs-6" id="wheel3D"></div>
+                    <div class="col-xs-6">
+                      <div  id="wheel3D">
+                      </div>
+                    </div>
 
                     <p class="col-xs-12">But views can also consist of text, tables, graphs, schematics...</p>
 
@@ -175,12 +183,24 @@
                 <div class="row">
                   <div class="slide-container justify bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
-                    <h1>Import/Export</h1>
+                      <div class="col-xs-12">
+                        <h1>Import/Export</h1>
+                      </div>
 
-                    <p>Besides views, data can be augmented with importers and exporters.</p>
-                    <p>As their names suggest, these allow you to map Tyle's data format to your existing databases and tools.</p>
-                    <p>Writing a custom view, importer or exporter is done with Javascript, the language of the web.</p>
-                    <p>You can leverage any library available out there just by declaring it as a dependency. Check-out <a href="http://d3js.org/"><b>d3.js</b></a> or <a href="http://threejs.org/"><b>three.js</b></a> for inspiration.</p>
+                    <div class="col-xs-9">
+                      <p>Insert Tyle into existing workflows, by augmenting your data with <i>importers</i> and <i>exporters</i>.</p>
+                      <p>As their names suggest, they allow you to map Tyle's data format in and out of your existing databases and tools.</p>
+                      <p>Write a custom <i>view</i>, <i>importer</i> or <i>exporter</i> with <b>Javascript</b>, the language of the web.</p>
+                      <p>Leverage any library available out there simply by declaring it as a dependency. Check-out <a href="http://d3js.org/"><b>d3.js</b></a> or <a href="http://threejs.org/"><b>three.js</b></a> for inspiration.</p>
+                    </div>
+
+                    <div class="col-xs-3">
+                      <span class="glyphicon glyphicon-wrench med-icon"></span>
+                      <span class="glyphicon glyphicon-arrow-down med-icon" style="font-size: 2em; margin: 20px;"></span>
+                      <span class="glyphicon glyphicon-tasks" style="border: solid 2px white; border-radius: 6px; padding: 10px; margin-bottom: 10px; display:block; font-size: 1.2em; text-align: center;"> Tyle</span>
+                      <span class="glyphicon glyphicon-arrow-down med-icon" style="font-size: 2em; margin: 20px;"></span>
+                      <span class="glyphicon glyphicon-cog med-icon"></span>
+                    </div>
 
                   </div>
                 </div>
@@ -195,12 +215,12 @@
             <div class="item">
               <div class="container">
                 <div class="row">
-                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                  <div class="slide-container justify bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
-                    <p>Explore your data with Tyle-Explorer.</p>
-                    <p>Tyle-Explorer is available in your browser (if your data is stored on a server) or as a standalone application (allowing you to also access data locally, or over FTP and SSH).</p>
-                    <p>Tyle-Explorer displays your object's views and allows you to compare various objects and to run your importers/exporters.</p>
-                    <p>Screenshot Tyle-Explorer.</p>
+                    <h1>Tyle-Explorer</h1>
+                    <p>Access your object's views, compare various objects and run importers &amp; exporters.</p>
+                    <p>Tyle-Explorer is available in the browser (if your data is stored on a server) or as a standalone application (to access data locally).</p>
+                    <a class="fancybox" rel="group" href="img/screenshot-big.png"><img class="col-xs-8 col-xs-offset-2 margin-txt" src="img/screenshot.png" alt="" /></a>
 
                   </div>
                 </div>
@@ -215,13 +235,42 @@
             <div class="item">
               <div class="container">
                 <div class="row">
-                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                  <div class="slide-container justify bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
-                    <p>You need to keep track of evolutions in your data in time? You need engineers to access/edit the data concurrently?</p>
-                    <p>Tyle will work extremely nicely with tools like Git or Subversion, or even Dropbox!</p>
-                    <p>Originally designed for source code versioning, Git will do a great job at tracking changes in your data, and merging the work done by various engineers concurrently.</p>
-                    <p>Cherry-on-top: Create a GitHub account, and instantly share your data with the world for free!</p>
-                    <p>You can even host Tyle-Explorer on a static page to displays your views to everyone!!</p>
+                    <div class="col-xs-12"><span><h1>Version-controlled data</h1></span></div>
+
+                    <div class="col-xs-4 centered">
+                      <span class="glyphicon glyphicon-stats med-icon"></span>
+                      <p>Need to keep track of evolutions in your data in time?</p>
+                    </div>
+
+                    <div class="col-xs-4 centered">
+                      <span class="glyphicon glyphicon-resize-small med-icon"></span>
+                      <p>Need to access/edit data concurrently?</p>
+                    </div>
+
+                    <div class="col-xs-4 centered">
+                      <span class="glyphicon glyphicon-th-list med-icon"></span>
+                      <p>Need to maintain parallel versions of the data?</p>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <p>Tyle will work very nicely with tools like <b><a href="https://git-scm.com/">Git</a></b>, <b><a href="https://subversion.apache.org/">Subversion</a></b>, or even <b><a href="https://www.dropbox.com/fr/">Dropbox</a></b>!</p>
+                    </div>
+
+                    <div class="col-xs-10">
+                      <p>Git does a great job at tracking changes in your data, and merging the work done by various engineers concurrently.</p>
+                    </div>
+                    <div class="col-xs-2">
+                      <img src="img/git-white.png" style="height: 3em; margin-left:5px;"/>
+                    </div>
+                    <div class="col-xs-10">
+                      <p><b>Bonus:</b> Combine <b><a href="https://git-scm.com/">Git</a></b> and <b><a href="https://github.com/">GitHub</a></b>, and instantly share your data on the web.
+                        Then, host <b>Tyle-Explorer</b> on a static page to displays your views to world!</p>
+                    </div>
+                    <div class="col-xs-2">
+                      <span class="glyphicon glyphicon-globe med-icon"></span>
+                    </div>
 
                   </div>
                 </div>
@@ -236,9 +285,11 @@
             <div class="item">
               <div class="container">
                 <div class="row">
-                  <div class="slide-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                  <div class="slide-container justify bigger-font col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
 
-                    <p>Without introducing any unnecessary complexity, Tyle gives your data up to five dimensions:</p>
+                    <h1>Your data, in 5D</h1>
+
+                    <p>At the cost of no unnecessary complexity, Tyle structures, augments, tracks and deploy your data:</p>
 
                     <ul>
                       <li>Model widely different types of data</li>
@@ -414,14 +465,20 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!-- Code highlights -->
     <script src="js/markdown.min.js"></script>
 
+    <!-- Code highlight -->
     <script src="js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
+    <!-- 3D -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
     <script src="js/CanvasRenderer.js"></script>
     <script src="js/Projector.js"></script>
+
+    <!-- Enlarge image -->
+    <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 
     <!-- Custom Javascript -->
     <script src="js/tyle.js"></script>

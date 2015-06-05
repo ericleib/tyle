@@ -154,6 +154,12 @@ $(document).ready(function(){
 });
 
 
+/** Enlarge picture **/
+$(document).ready(function() {
+  $(".fancybox").fancybox();
+});
+
+
 /** Populate release notes **/
 $(document).ready(function(){
 
