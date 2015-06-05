@@ -30,6 +30,7 @@ body {
 }
 
 .carousel-caption h2 {
+  font-size: 1.5em !important;
   border: solid white 2px;
   border-radius: 3px;
   padding: 10px;
@@ -48,7 +49,13 @@ body {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
 }
 
+.justify {
+  text-align: justify;
+}
 
+.centered {
+  text-align: center;
+}
 
 header a, header a:hover, header a:visited, header a:active, header a:link {
   text-decoration: none;
@@ -57,38 +64,22 @@ header a, header a:hover, header a:visited, header a:active, header a:link {
 
 header {
   color: white;
-  text-align: justify;
 }
-
 
 header {
   font-size: 1em !important;
 }
 
-header h2 {
+.slide-container h2 {
   font-size: 1.5em !important;
 }
 
 .slide-container {
-  margin-top: 0;
+  margin-top: 10px;
 }
 
-@media only screen and (min-height: 640px) {
-  header {
-    font-size: 1.2em !important;
-  }
-  .slide-container {
-    margin-top: 20px;
-  }
-}
-
-@media only screen and (min-height: 820px) {
-  header {
-    font-size: 1.5em !important;
-  }
-  .slide-container {
-    margin-top: 30px;
-  }
+.bigger-font {
+  font-size: 1.2em;
 }
 
 #hello {
@@ -102,7 +93,40 @@ header h2 {
 }
 
 .txt-table {
-  padding: 10px 0 10px 20px;
+  padding: 5px 0 5px 20px;
+}
+
+@media only screen and (min-height: 640px) {
+  header {
+    font-size: 1.2em !important;
+  }
+  .slide-container {
+    margin-top: 20px;
+  }
+
+  .txt-table {
+    padding: 8px 0 8px 20px;
+  }
+}
+
+@media only screen and (min-height: 820px) {
+  header {
+    font-size: 1.4em !important;
+  }
+  .slide-container {
+    margin-top: 30px;
+  }
+  .txt-table {
+    padding: 10px 0 10px 20px;
+  }
+}
+
+.big-icon {
+  text-align: center;
+  font-size: 5em;
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 
@@ -151,4 +175,10 @@ footer {
 
 .table td:hover {
   background-color: #EEE;
+}
+
+#releaseNotes {
+  display: none;
+  border-radius: 6px;
+  border: solid 1px #CCC;
 }

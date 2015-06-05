@@ -32,6 +32,21 @@ $(function(){
 });
 
 
+/** Populate release notes **/
+$(document).ready(function(){
+
+  $.ajax({
+    type: "GET",
+    url: "https://api.github.com/repos/ericleib/tyle/releases/latest"
+  }).done(function(response) {
+    var releaseNotesText = response.body;
+    var title = "<h4>Release notes:</h4>";
+    $("#releaseNotes").html(title + markdown.toHTML(releaseNotesText)).show();
+  });
+
+});
+
+
 /** Contact form **/
 $(document).ready(function() {
 
@@ -51,38 +66,71 @@ $(document).ready(function() {
     var check =  $('#foo').val();   // Anti-spam
 
     if(check===''){
-      $.ajax({
-        type: "POST",
-        url: "https://mandrillapp.com/api/1.0/messages/send.json",
-        data: {
-          'key': '2fdGlohAdHsp0K7Wk0IL3Q',
-          'message': {
-            'from_email': email,
-            'to': [
-                {
-                  'email': 'support@gettyle.com',
-                  'name': 'GetTyle',
-                  'type': 'to'
-                }
-              ],
-            'autotext': 'true',
-            'subject': object,
-            'html': message
-          }
-        }
-      }).done(function(response) {
-        $("#contact")[0].reset();
-        $("#formResponse").removeClass("text-danger");
-        $("#formResponse").addClass("text-success");
-        $("#formResponse").text("Thank you for your message!");
-      }).fail(function(jqXHR, textStatus) {
-        $("#formResponse").addClass("text-danger");
-        $("#formResponse").removeClass("text-success");
-        $("#formResponse").text("Your message could not be sent...");
-      })
-     ; // ajax
+      register(email, object, message);
     }
 
 
   });//submit
+
+
+  function register(email, object, message){
+    $.ajax({
+      type: "POST",
+      url: "https://mandrillapp.com/api/1.0/messages/send.json",
+      data: {
+        'key': '2fdGlohAdHsp0K7Wk0IL3Q',
+        'message': {
+          'from_email': email,
+          'to': [
+              {
+                'email': 'support@gettyle.com',
+                'name': 'GetTyle',
+                'type': 'to'
+              }
+            ],
+          'autotext': 'true',
+          'subject': object,
+          'html': message
+        }
+      }
+    }).done(function(response) {
+      $("#contact")[0].reset();
+      $("#formResponse").removeClass("text-danger");
+      $("#formResponse").addClass("text-success");
+      $("#formResponse").text("Thank you for your message!");
+      sendThanks(email, object, message);
+    }).fail(function(jqXHR, textStatus) {
+      $("#formResponse").addClass("text-danger");
+      $("#formResponse").removeClass("text-success");
+      $("#formResponse").text("Your message could not be sent...");
+    }); // ajax
+  } // register()
+
+  function sendThanks(email, object, message) {
+    $.ajax({
+      type: "POST",
+      url: "https://mandrillapp.com/api/1.0/messages/send.json",
+      data: {
+        'key': '2fdGlohAdHsp0K7Wk0IL3Q',
+        'message': {
+          'from_email': 'support@gettyle.com',
+          'to': [
+              {
+                'email': email,
+                'type': 'to'
+              }
+            ],
+          'autotext': 'true',
+          'subject': 'Thank you for your interest in Tyle',
+          'html': "<h1>Thank you for your message!</h1>"+
+                  "<p>Feel free to directly communicate with us by replying to this email.</p>"+
+                  "<p><strong>Object: </strong>"+object+"</p>"+
+                  "<p><strong>Message: </strong>"+message+"</p>"
+        }
+      }
+    }).done(function(res) {
+      //console.log(res);
+    }); // ajax
+  } // send thanks()
+
 });// ready
