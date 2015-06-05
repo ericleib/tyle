@@ -70,6 +70,9 @@ header {
   font-size: 1em !important;
 }
 
+.slide-container h1 {
+  font-size: 1.7em !important;
+}
 .slide-container h2 {
   font-size: 1.5em !important;
 }
@@ -96,20 +99,19 @@ header {
   padding: 5px 0 5px 20px;
 }
 
-@media only screen and (min-height: 640px) {
+@media only screen and (min-height: 640px) and (min-width: 640px){  /** Vertical & horizontal responsiveness **/
   header {
     font-size: 1.2em !important;
   }
   .slide-container {
     margin-top: 20px;
   }
-
   .txt-table {
     padding: 8px 0 8px 20px;
   }
 }
 
-@media only screen and (min-height: 820px) {
+@media only screen and (min-height: 820px) and (min-width: 820px) {  /** Vertical & horizontal responsiveness **/
   header {
     font-size: 1.4em !important;
   }
@@ -129,6 +131,30 @@ header {
   margin-top: 20px;
 }
 
+.slide-container pre {
+  background: rgba(0,0,0,0.1);
+  text-align: left;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.slide-container code {
+  background: transparent;
+}
+
+.slide-container .small-pre {
+  font-size: 0.7em;
+}
+
+#wheel3D{
+  padding: 0;
+  height: 120px;
+}
+
+#wheel3D canvas{
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
 footer {
   margin: 50px 0;
