@@ -24,20 +24,18 @@ body {
   bottom: 10px;
 }
 
-.carousel-caption {
-  bottom: 22px;
-  text-shadow:none;
+.caption-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
 }
 
-.carousel-caption h2 {
-  font-size: 1.5em !important;
-  border: solid white 2px;
-  border-radius: 3px;
-  padding: 10px;
-  display: inline-block;
+.caption {
+  position: relative;
+  left: -50%;
 }
 
-.carousel-caption h2:hover {
+.caption h2:hover {
   background-color: white;
   color:  #f45145;
 }
@@ -49,13 +47,42 @@ body {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
 }
 
-.justify {
-  text-align: justify;
+
+.border-white {
+  border: solid white 2px;
 }
 
-.centered {
-  text-align: center;
-}
+.block { display: block; }
+
+.justify { text-align: justify; }
+.centered { text-align: center; }
+
+.rounded-3{ border-radius: 3px;}
+.rounded-5{ border-radius: 5px;}
+.rounded-10{ border-radius: 10px;}
+.rounded-20{ border-radius: 20px;}
+
+.padding-5{ padding: 5px; }
+.padding-10{ padding: 10px; }
+.padding-20-10{ padding: 20px 10px; }
+
+.margin-10{ margin: 10px; }
+.margin-20{ margin: 20px; }
+
+.margin-top-em{ margin-top: 0.3em; }
+.margin-bottom-em{ margin-bottom: 0.3em; }
+
+.font-07 {font-size: 0.7em;}
+.font-08 {font-size: 0.8em;}
+.font-1 {font-size: 1.0em;}
+.font-12 {font-size: 1.2em;}
+.font-15 {font-size: 1.5em;}
+.font-18 {font-size: 1.8em;}
+.font-2 {font-size: 2em;}
+.font-22 {font-size: 2.2em;}
+.font-3 {font-size: 3em;}
+.font-5 {font-size: 5em;}
+
 
 header a, header a:hover, header a:visited, header a:active, header a:link {
   text-decoration: none;
@@ -75,24 +102,6 @@ header {
 }
 .slide-container h2 {
   font-size: 1.5em !important;
-}
-
-.slide-container {
-  margin-top: 10px;
-}
-
-.bigger-font {
-  font-size: 1.2em;
-}
-
-#hello {
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-.icon-table {
-  font-size: 2.2em;
-  margin-top: 11px;
 }
 
 .txt-table {
@@ -135,39 +144,12 @@ header {
   }
 }
 
-.big-icon {
-  text-align: center;
-  font-size: 5em;
-  display: block;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.med-icon {
-  text-align: center;
-  font-size: 3em;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  display: block;
-}
-
 .slide-container pre {
   background: rgba(0,0,0,0.1);
-  text-align: left;
-  font-size: 0.8em;
-  margin-top: 5px;
 }
 
 .slide-container code {
   background: transparent;
-}
-
-.slide-container .small-pre {
-  font-size: 0.7em;
-}
-
-.margin-txt{
-  margin-top: 1em;
 }
 
 #wheel3D{
@@ -229,6 +211,5 @@ footer {
 
 #releaseNotes {
   display: none;
-  border-radius: 6px;
   border: solid 1px #CCC;
 }
