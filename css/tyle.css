@@ -47,12 +47,13 @@ body {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
 }
 
-
-.border-white {
-  border: solid white 2px;
-}
-
 .block { display: block; }
+
+.border-white { border: solid white 2px; }
+.border-bottom-white { border-bottom: solid 2px white; }
+.border-top-white { border-top: solid 2px white; }
+.border-left-white { border-left: solid 2px white; }
+.border-right-white { border-right: solid 2px white; }
 
 .justify { text-align: justify; }
 .centered { text-align: center; }
