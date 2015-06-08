@@ -11,7 +11,7 @@
 
     <title>Tyle - Augment you data</title>
 
-    <link rel="icon" href="tile.png" />
+    <link rel="icon" href="img/tile.png" />
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -402,9 +402,8 @@
                   </table>
                 </div>
 
+                <!-- populated with javascript -->
                 <div id="releaseNotes" class="col-xs-12 rounded-5"></div>
-
-                <!-- Add form here for comments and call to action -->
 
             </div>
 
@@ -412,7 +411,44 @@
 
         <section class="row">
           <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-            <h3>Tyle features</h3>
+            <h3>Tyle's top-level features</h3>
+
+            <table class="table table-hover">
+              <tr class="table-header"> <th>Category</th> <th>Feature</th> <th>Tool</th> <th>Status</th> </tr>
+              <tr> <td>Modelling</td> <td>Primitive types and structures</td> <td>XML file</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Modelling</td> <td>Dynamic types (user's own primitives)</td> <td>XML file</td> <td class="text-warning bg-warning">Planned</td> </tr>
+              <tr> <td>Modelling</td> <td>Template schema for objects of one category</td> <td>XML file</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Modelling</td> <td>Include remote schema (ref to separate file)</td> <td>XML file</td> <td class="text-warning bg-warning">Started</td> </tr>
+              <tr> <td>Modelling</td> <td>Mapping of data and views</td> <td>XML file</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Modelling</td> <td>Recursive structures (e.g. tree)</td> <td>XML file</td> <td class="text-warning bg-warning">Started</td> </tr>
+
+              <tr> <td>Visualisation</td> <td>Open and visualise tyles</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Visualisation</td> <td>Built-in views (table, tree, drawing, charts)</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Visualisation</td> <td>Dynamic views (user custom views)</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Started</td> </tr>
+              <tr> <td>Visualisation</td> <td>Filter tyles</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Visualisation</td> <td>Comparison views</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+
+              <tr> <td>I/O</td> <td>Edit and save objects to repository</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+              <tr> <td>I/O</td> <td>Import data into Tyle (importers)</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+              <tr> <td>I/O</td> <td>Export data from Tyle (exporters)</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+              <tr> <td>I/O</td> <td>Access data over local file-system</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>I/O</td> <td>Access data over HTTP</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+              <tr> <td>I/O</td> <td>Access data over FTP</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+              <tr> <td>I/O</td> <td>Access data over SSH</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Planned</td> </tr>
+
+              <tr> <td>Version-control</td> <td>Track changes in data</td> <td>SCM (e.g. Git)</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Version-control</td> <td>Parallel/concurrent workflow (branches)</td> <td>SCM (e.g. Git)</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Version-control</td> <td>Multiple protocols (Local, HTTP, FTP, SSH)</td> <td>SCM (e.g. Git)</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Version-control</td> <td>Data deployment</td> <td>SCM (e.g. Git)</td> <td class="text-success bg-success">Done</td> </tr>
+
+              <tr> <td>Compatibility</td> <td>Windows</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Compatibility</td> <td>Mac</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Compatibility</td> <td>Linux</td> <td>Tyle-Explorer</td> <td class="text-success bg-success">Done</td> </tr>
+              <tr> <td>Compatibility</td> <td>Web-app</td> <td>Tyle-Explorer</td> <td class="text-warning bg-warning">Started</td> </tr>
+
+              <tr> <td>Long-term</td> <td>Compound views (views made of various views)</td> <td>Tyle-Explorer</td> <td class="text-danger bg-danger">Project</td> </tr>
+              <tr> <td>Long-term</td> <td>Workflow integration (run scripts/tools)</td> <td>Tyle-Explorer</td> <td class="text-danger bg-danger">Project</td> </tr>
+            </table>
 
           </div>
         </section>
