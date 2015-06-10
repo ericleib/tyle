@@ -11,7 +11,7 @@ window.registerView = function(view){  // API this function is called from <view
   viewManager.addView(view);
 };
 
-
+var CONTEXT = (typeof require == 'function' ? 'NODE-WEBKIT' : 'BROWSER');
 
 // ANGULAR APP
 
@@ -28,10 +28,11 @@ app.controller('NavCtrl', ['$scope', '$rootScope', '$localStorage', '$sessionSto
     {name:'FTP', value:'ftp', disabled:true, defaultPath:''},
     {name:'SSH', value:'ssh', disabled:true, defaultPath:''}
   ];
-  nav.protocol = 'local';
+  var protocol = nav.protocols.filter(function(p){return p.default;})[0];
+  nav.protocol = protocol.value;
 
-  console.log("Initilializing Nav controller with url: "+local.defaultPath);
-  $scope.$storage = $localStorage.$default({prev_urls : [local.defaultPath]});
+  console.log("Initilializing Nav controller with url: "+protocol.defaultPath);
+  $scope.$storage = $localStorage.$default({prev_urls : [protocol.defaultPath]});
 
   nav.go = function() {
     log.info("User clicked go! with url: "+nav.url);
@@ -124,25 +125,28 @@ function($scope, $rootScope, getParser, logger){
 // Footer controller
 .controller('FooterCtrl', ['$scope',function($scope){
 
-  $scope.libs = [
-    {name: 'node', version: process.versions.node},
-    {name: "chromium", version: process.versions.chromium},
-    {name: "nw", version: process.versions["node-webkit"]},
-    {name: "angular", version: angular.version.full},
-    {name: "jquery", version: $.fn.jquery}
-  ];
+  $scope.libs = [];
 
-  $scope.error = false;
-
-  process.on('uncaughtException', function(error) {
-    $scope.error = true;
-    $scope.$apply();
-    alert(error);
-  });
-
-  $scope.debug = function(){
-    require('nw.gui').Window.get().showDevTools();    // TODO: Remove this as not available in pure webkit context
+  if(CONTEXT==='NODE-WEBKIT'){
+    $scope.libs.push({name: 'node', version: process.versions.node});
+    $scope.libs.push({name: "chromium", version: process.versions.chromium});
+    $scope.libs.push({name: "nw", version: process.versions["node-webkit"]});
     $scope.error = false;
-  };
+
+    process.on('uncaughtException', function(error) {
+      $scope.error = true;
+      $scope.$apply();
+      alert(error);
+    });
+
+    $scope.debug = function(){
+      require('nw.gui').Window.get().showDevTools();    // TODO: Remove this as not available in pure webkit context
+      $scope.error = false;
+    };
+  }
+  $scope.libs.push({name: "angular", version: angular.version.full});
+  $scope.libs.push({name: "jquery", version: $.fn.jquery});
+
+
 
 }]);

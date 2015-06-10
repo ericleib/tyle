@@ -3,6 +3,9 @@
 // This factory is meant to run in node-webkit context (require function is used to call node modules)
 app.factory('local-adapter', [function(){
 
+  if(CONTEXT==='BROWSER')
+    return {name : 'Local', value : 'local', disabled : true};
+
   var nwDir = require('path').dirname(process.execPath);
   var fs = require('fs');
   var path = require('path');
@@ -65,7 +68,7 @@ app.factory('http-adapter', [function(){
 
     disabled: false,
 
-    default: false,
+    default: CONTEXT==='BROWSER',
 
     defaultPath: 'http://localhost:8080/label.xml',
 
