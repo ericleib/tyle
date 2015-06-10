@@ -8,10 +8,10 @@ registerView({
   render : function(scope, element, data){
 
     $(element).fileTree({ root: "" },
-      function(file) {
+      function(file, callback) {
         // Nothing special when node selected
       },
-      function(dir) {
+      function(dir, callback) {
         var r = [];
         //console.log("dir "+dir);
         dir = unescape(dir);
@@ -41,7 +41,7 @@ registerView({
             r.push({type: "file", class: "file", path: dir, text : ""+val});
         }
 
-        return r;
+        callback(r);
       }
     );
 

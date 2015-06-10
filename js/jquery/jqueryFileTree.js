@@ -53,11 +53,12 @@ if(jQuery) (function($){
 				function showTree(c, dir) {
 					$(c).addClass('wait');
 					$(".jqueryFileTree.start").remove();
-					var data = getDirList(dir);
-					$(c).find('.start').html('');
-					$(c).removeClass('wait').append(makeHTML(data));
-					if( opt.root == dir ) $(c).find('UL:hidden').show(); else $(c).find('UL:hidden').slideDown({ duration: opt.expandSpeed, easing: opt.expandEasing });
-					bindTree(c);
+					getDirList(dir, function(data){
+						$(c).find('.start').html('');
+						$(c).removeClass('wait').append(makeHTML(data));
+						if( opt.root == dir ) $(c).find('UL:hidden').show(); else $(c).find('UL:hidden').slideDown({ duration: opt.expandSpeed, easing: opt.expandEasing });
+						bindTree(c);
+					});
 				}
 
 				function makeHTML(data){

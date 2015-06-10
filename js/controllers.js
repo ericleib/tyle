@@ -18,18 +18,17 @@ window.registerView = function(view){  // API this function is called from <view
 var app = angular.module('tyleApp',['ngStorage']);
 
 // Navigation controller
-app.controller('NavCtrl', ['$scope', '$rootScope', '$localStorage', '$sessionStorage', 'local-adapter', 'log',
-    function($scope, $rootScope, $localStorage, $sessionStorage, local, log) {
+app.controller('NavCtrl', ['$scope', '$rootScope', '$localStorage', '$sessionStorage', 'local-adapter', 'http-adapter', 'log',
+    function($scope, $rootScope, $localStorage, $sessionStorage, local, http, log) {
 
   var nav = this;
 
   nav.protocols = [
-    local,
-    {name:'HTTP', value:'http', disabled:true, defaultPath:''},
-    {name:'FTP', value:'FTP', disabled:true, defaultPath:''},
+    local, http,
+    {name:'FTP', value:'ftp', disabled:true, defaultPath:''},
     {name:'SSH', value:'ssh', disabled:true, defaultPath:''}
   ];
-  nav.protocol = local;
+  nav.protocol = 'local';
 
   console.log("Initilializing Nav controller with url: "+local.defaultPath);
   $scope.$storage = $localStorage.$default({prev_urls : [local.defaultPath]});
@@ -49,7 +48,8 @@ app.controller('NavCtrl', ['$scope', '$rootScope', '$localStorage', '$sessionSto
         history.pop();
       }
 
-      $rootScope.$emit('newurl', {url : nav.url, protocol: nav.protocol});
+      var protocol = nav.protocols.filter(function(p){return nav.protocol===p.value;})[0];
+      $rootScope.$emit('newurl', {url : nav.url, protocol: protocol});
     }
   };
 

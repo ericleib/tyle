@@ -6,18 +6,28 @@ app.directive('filetree', ['$rootScope',function($rootScope){
 
       $rootScope.$on('newurl', function(event, data){
         console.log("url changed! "+data.url);
+        console.log("protocol: "+data.protocol.name);
 
         $(element).fileTree(
           { root: data.url }, // Options
           function(url) {     // Callback when a file is selected
-            $rootScope.$emit('fileselected', {url: url, contents: data.protocol.read(url)});
+            data.protocol.read(url, function(err, contents){
+              $rootScope.$emit('fileselected', {url: url, contents: contents});
+            });
           },
       		data.protocol.getDirectoryContent  // Return contents of a directory
         );
 
-        data.protocol.getDirectoryContent(data.url)
-        .filter(function(entry){ return entry.type==='file'; })
-        .forEach(function(file){ $rootScope.$emit('fileselected', {url: file.path, contents: data.protocol.read(file.path)}); });
+        console.log("Open files in root dir");
+        data.protocol.getDirectoryContent(data.url, function(dircontent){
+          dircontent
+          .filter(function(entry){ return entry.type==='file'; })
+          .forEach(function(file){
+            data.protocol.read(file.path, function(err, contents){
+              $rootScope.$emit('fileselected', {url: file.path, contents: contents});
+            });
+          });
+        });
 
       });
 
