@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tyle>
-  <!-- Tyle is based on a number of principles:
-    - Data is stored in xml files (tyles) readable and editable by non-specialists
-    - Tyles can be traced in time, using a SCM (e.g. Git, SVN)
-    - Tyles are structured in a flexible, object-oriented way
-    - Tyles contain the data, the structure of the data, and the means of representing the data
-  -->
-  <!-- Selection principles:
-    - Select a child/all children of type "iso" with "iso"
-    - Select a child/all children of id "iso" with "#iso" (optional)
-    - Select a child/all children tagged "iso" with ".iso" (optional)
-    -->
-  <!-- Schema is a way to declare object structure -->
-  <!-- Not mandatory : Object can be declared dynamically (although no supported in v1) -->
-  <!-- Inline views/rules declaration not supported in v1 -->
-  <!-- Recursive type declaration not supported in v1 but could be e.g. <son type="father"> ==> useful for hierachical structures-->
-  <!-- Make a simpler version for presentation to avoid scaring people -->
-  <!-- Make some rules enforçable... like "ordered-by" -->
-  <!-- ids must be unique with one object-->
-  <!-- Views are defined as attribute for now. In the future maybe consider switch to child-elements if many views -->
-  <!-- Dilemna: which is best? (1) "<string name='abs'" vs. (2) "<abs type='string'"
-      - Pros of (1): Easy document validation (looks like xsd) + type attribute can be used instead of items-type + no problem of duplication of types...
-      - Pros of (2): Data looks very much like its schema
-  -->
-  <!-- tags: Automatically affected to all children of an object? -->
+
   <schemas>
 
     <label type="object" views="table, xy-graph as graph"> <!-- The top-level declaration of each view will trigger a function call like table() -->
