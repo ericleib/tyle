@@ -5,7 +5,7 @@ Tyle lets engineers and scientists augment their data with dynamic views.
 
 Tyle-Explorer is the application to open Tyle files (written in XML format).
 
-**Tyle-Explorer** works as a static web application (pure html/css/js), which allows to access data over simple HTTP (A file server is required -- [Example here][https://github.com/ericleib/tyle/blob/master/test/label.xml]).
+**Tyle-Explorer** works as a static web application (pure html/css/js), which allows to access data over simple HTTP (A file server is required -- [https://github.com/ericleib/tyle/blob/master/test/label.xml][Example here]).
 **Tyle-Explorer-Desktop** is an extension of Tyle-Explorer running as a standalone application. It is based on *Node-Webkit*, and works exactly like the web version, excepts it allows to access data over additional protocols (local, FTP, SSH).
 
 ## Download and run Tyle-Explorer-Desktop the quick way
