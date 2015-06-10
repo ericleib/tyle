@@ -1,7 +1,7 @@
 
 # Tyle
 
-Tyle lets non-software engineers augment their data with dynamic views.
+Tyle lets engineers and scientists augment their data with dynamic views.
 
 Tyle-Explorer is an extensible Node-Webkit application.
 
