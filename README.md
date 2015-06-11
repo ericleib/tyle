@@ -5,8 +5,8 @@ Tyle lets engineers and scientists augment their data with dynamic views.
 
 Tyle-Explorer is the application to open Tyle files (written in XML format -- [Example here](https://github.com/ericleib/tyle/blob/master/test/label.xml)).
 
-**Tyle-Explorer** works as a static web application (pure html/css/js), which allows to access data over simple HTTP (A file server is required).
-**Tyle-Explorer-Desktop** is an extension of Tyle-Explorer running as a standalone application. It is based on *Node-Webkit*, and works exactly like the web version, excepts it allows to access data over additional protocols (local, FTP, SSH).
+**Tyle-Explorer** works as a static web application (pure html/css/js), and allows to access data over simple HTTP (A file server is required).
+**Tyle-Explorer-Desktop** is an extension of Tyle-Explorer running as a standalone application. It is based on *Node-Webkit*, and works exactly like the web version, except it allows to access data over additional protocols (local, FTP, SSH).
 
 ## Download and run Tyle-Explorer-Desktop the quick way
 
@@ -21,6 +21,17 @@ Then, just clone this repository locally, and install the project dependencies (
     git clone https://github.com/ericleib/tyle.git
     cd tyle
     npm install
+
+## Run Tyle-Explorer in the browser
+
+You need one thing to run the web version: A static file server. You can use any technique of your choice to do this. But if you want to get started quickly, the following is probably the best:
+
+In the console, run:
+
+    node server.js
+
+Then, go to your browser and browse to [http://localhost:8080/](http://localhost:8080/). You should see the Tyle-Explorer GUI.
+
 
 ## Run Tyle-Explorer-Desktop
 

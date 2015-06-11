@@ -6,9 +6,10 @@ app.factory('local-adapter', [function(){
   if(CONTEXT==='BROWSER')
     return {name : 'Local', value : 'local', disabled : true};
 
-  var nwDir = require('path').dirname(process.execPath);
   var fs = require('fs');
   var path = require('path');
+
+  var nwDir = path.dirname(process.execPath);
 
   return {
 
@@ -20,7 +21,7 @@ app.factory('local-adapter', [function(){
 
     default: true,
 
-    defaultPath: nwDir,
+    defaultPath: path.join(nwDir,"test"),
 
     read: fs.readFile,  // Async read
 
@@ -70,7 +71,7 @@ app.factory('http-adapter', [function(){
 
     default: CONTEXT==='BROWSER',
 
-    defaultPath: 'http://localhost:8080/label.xml',
+    defaultPath: 'http://localhost:8080/test',
 
     read: function(url, callback){
       url = unescape(url);
@@ -87,7 +88,7 @@ app.factory('http-adapter', [function(){
       $.getJSON(dir, function(data){   // Using jquery to perform the AJAX call
         callback(data);
       }).fail(function(jqXHR, textStatus, errorThrown) {
-        if(textStatus==='parsererror' && dir.toLowerCase().endsWith(".xml"))
+        if(textStatus==='parsererror' && dir.toLowerCase().indexOf(".xml", dir.length - 4) !== -1)
           callback([{type: "file", class: "file ext_xml", path: dir, text : dir.substr(dir.lastIndexOf('/') + 1)}]);
         else
           callback([{type: "error", msg: 'Could not load directory: ' + dir + " (" + textStatus + ")"}]);
